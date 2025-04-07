@@ -16,6 +16,8 @@ if "%VERSION%"=="1" (
     set "MAIN=src/YoutubeOpenGL002 - Triangle/main.cpp"
 ) else if "%VERSION%"=="3" (
     set "MAIN=src/YoutubeOpenGL003 - Index Buffer/main.cpp"
+) else if "%VERSION%"=="4" (
+    set "MAIN=src/YoutubeOpenGL004 - Organizing/main.cpp"
 ) else (
     echo Unknown version: %VERSION%
     exit /b 1

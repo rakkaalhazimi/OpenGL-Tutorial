@@ -19,10 +19,18 @@ if(NOT DEFINED MAIN_SRC)
 endif()
 
 # Source files
-set(SOURCES
-    ${MAIN_SRC}
-    src/glad.c
+# Get the directory where MAIN_SRC lives
+get_filename_component(MAIN_SRC_DIR ${MAIN_SRC} DIRECTORY)
+file(GLOB_RECURSE SOURCES 
+    "${MAIN_SRC_DIR}/*.cpp" 
+    "${MAIN_SRC_DIR}/*.h"
+    "src/glad.c"
 )
+
+# set(SOURCES
+#     ${MAIN_SRC}
+#     src/glad.c
+# )
 
 # Create executable
 add_executable(MyOpenGLApp ${SOURCES})
