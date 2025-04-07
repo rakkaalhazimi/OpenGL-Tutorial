@@ -64,7 +64,7 @@ int main()
   
   
   // Generates Vertex Array Object and binds it
-  VAO VAO1;
+  VAO VAO1, VAO2;
   VAO1.Bind();
   
   // Generates Vertex Buffer Object and links it to vertices
@@ -74,11 +74,32 @@ int main()
   
   // Links VBO to VAO
   VAO1.LinkVBO(VBO1, 0);
+  VAO1.Unbind();
+  
+  // Add Rectangle for exercise
+  VAO2.Bind();
+  GLfloat vertices2[] =
+  {
+    -0.4f, 0.4f, 0.0f, // top left
+    0.4f, 0.4f, 0.0f, // top right
+    -0.4f, -0.4f, 0.0f, // bottom left
+    0.4f, -0.4f, 0.0f, // bottom right
+  };
+  GLuint indices2[] = 
+  {
+    0, 1, 2,
+    3, 2, 1,
+  };
+  VBO VBO2(vertices2, sizeof(vertices2));
+  EBO EBO2(indices2, sizeof(indices2));
+  VAO2.LinkVBO(VBO2, 0);
+  VAO2.Unbind();
   
   // Unbind all to prevent accidentally modifying them
   VAO1.Unbind();
   VBO1.Unbind();
   EBO1.Unbind();
+  VBO2.Unbind();
   
   // Specify the color of the background
   glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
@@ -97,6 +118,8 @@ int main()
     shaderProgram.Activate();
     VAO1.Bind();
     glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
+    VAO2.Bind();
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glfwSwapBuffers(window);
     
     // Take care of all GLFW events
