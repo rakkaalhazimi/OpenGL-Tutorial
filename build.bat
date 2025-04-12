@@ -22,6 +22,8 @@ if "%VERSION%"=="1" (
     set "MAIN=src/YoutubeOpenGL005 - Shader/main.cpp"
 ) else if "%VERSION%"=="6" (
     set "MAIN=src/YoutubeOpenGL006 - Texture/main.cpp"
+) else if "%VERSION%"=="7" (
+    set "MAIN=src/YoutubeOpenGL007 - Going 3D/main.cpp"
 ) else (
     echo Unknown version: %VERSION%
     exit /b 1
