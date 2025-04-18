@@ -26,6 +26,8 @@ if "%VERSION%"=="1" (
     set "MAIN=src/YoutubeOpenGL007 - Going 3D/main.cpp"
 ) else if "%VERSION%"=="8" (
     set "MAIN=src/YoutubeOpenGL008 - Camera/main.cpp"
+) else if "%VERSION%"=="9" (
+    set "MAIN=src/YoutubeOpenGL009 - Lightning/main.cpp"
 ) else (
     echo Unknown version: %VERSION%
     exit /b 1
